@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Session;
+using Microsoft.EntityFrameworkCore;
 
 namespace hakoisland
 {
@@ -25,12 +26,12 @@ namespace hakoisland
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-	    services.AddDistributedMemoryCache();
-	    services.AddSession(options =>
-	    {
-	        options.IdelTimeout = TimeSpan.FromSeconds(10);
-		options.Cookie.HttpOnly = true;
-	    });
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +47,7 @@ namespace hakoisland
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-	    app.UseSession();
+	        app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

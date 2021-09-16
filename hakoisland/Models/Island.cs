@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 
 namespace hakoisland.Models
 {
@@ -34,5 +35,54 @@ namespace hakoisland.Models
         /// </summary>
         /// <value></value>
         public uint AccumulatedTourists { get; set; }
+    }
+
+    public class IslandInfo : Island
+    {
+        /// <summary>
+        /// 排名
+        /// </summary>
+        /// <value></value>
+        public uint Rank { get; set; }
+        /// <summary>
+        /// 積分
+        /// </summary>
+        /// <value></value>
+        public uint Integral { get; set; }
+        /// <summary>
+        /// 總面積
+        /// </summary>
+        /// <value></value>
+        public uint TotalArea { get; set; }
+        /// <summary>
+        /// 工業從業員人數
+        /// </summary>
+        /// <value></value>
+        public uint IndustryEmployee { get; set; }
+        /// <summary>
+        /// 農業從業員人數
+        /// </summary>
+        /// <value></value>
+        public uint FrameEmployee { get; set; }
+        /// <summary>
+        /// 礦業從業員人數
+        /// </summary>
+        /// <value></value>
+        public uint MiningEmployee { get; set; }
+        /// <summary>
+        /// 發電量
+        /// </summary>
+        /// <value></value>
+        public uint TotalPower { get; set; }
+        /// <summary>
+        /// 失業率
+        /// </summary>
+        /// <value></value>
+        public double UnemploymentRate { get; set; }
+        /// <summary>
+        /// 島嶼訊息
+        /// </summary>
+        /// <value></value>
+        public string UserInfomation { get; set; }
     }
 }

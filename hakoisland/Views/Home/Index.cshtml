@@ -1,8 +1,125 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Hakoniwa Island";
+    var viewModel = (IndexViewModel)ViewData["viewModel"];
+    var loginItems = viewModel.LoginAccountViewModel;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@* title *@
+<div class="text-left">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <span class="tagHeader">1回合</span>
 </div>
+
+<hr>
+
+@* 登入選項 *@
+<h2>
+    <span class="tageHeader">島嶼登入</span>
+</h2>
+
+<form name="island" asp-action="Login" method="POST" onsubmit="">
+    島嶼名稱
+    <br>
+    <select name="user">
+        @foreach (var item in loginItems)
+        {
+            <option value=@item.IslandID.ToString()>@item.Name </option>
+        }
+    </select>
+    <br>
+    密碼
+    <br>
+    <input type="password" id="password" name="password" value="" size="32" maxlength="32">
+    <br>
+    <input type="radio" name=javamode value="standard" CHECKED>一般模式&emsp;
+    <input type="radio" name=javamode value="javascript" >JavaScript模式
+    <br>
+    <button type="submit">島嶼開發</button>
+</form>
+
+@* 諸島狀況 *@
+<hr>
+
+<h1>
+    <span class="tagHeader">諸島狀況</span>
+</h1>
+<br>
+<p>
+    點擊島嶼名稱，進入<b>觀光</b>。
+</p>
+
+@* 諸島列表 *@
+<table border>
+    <tbody>
+        <tr>
+            <th class="titleCell" align="center">
+                <span class="head">順位</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">島</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">人口</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">面積</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">資金</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">食料</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">農業規模</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">工業規模</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">商業規模</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">礦業規模</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">發電量</span>
+            </th>
+            <th class="titleCell" align="center">
+                <span class="head">技術</span>
+            </th>
+        </tr>
+        <tr>
+            @* @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
+            {
+                <li>@ViewData["Message"]</li>
+            } *@
+
+
+
+            
+            <th class="NumberCell" rowspan="4" align="center">
+                <font size="5">
+                    <span class="number">1</span>
+                </font>
+            </th>
+            <th class="NameCell" rowspan="4" align="left">
+                <center>
+                    <a href="" title="ID:0"></a>
+                </center>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+
+@* 箱庭盃 *@
+<div id="HakoniwaCup">
+        <hr>
+        <h1>
+                <a href="">Hakoniwa Cup</a>
+        </h1>
+</div>
+
+
+

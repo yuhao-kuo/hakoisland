@@ -2,6 +2,7 @@
     ViewData["Title"] = "Hakoniwa Island";
     var viewModel = (IndexViewModel)ViewData["viewModel"];
     var loginItems = viewModel.LoginAccountViewModel;
+    var listItems = viewModel.IslandViewModel;
 }
 
 @* title *@
@@ -52,63 +53,95 @@
 <table border>
     <tbody>
         <tr>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">順位</span>
             </th>
-            <th class="titleCell" align="center">
-                <span class="head">島</span>
+            <th class="TitleCell" align="center">
+                <span class="head">島嶼</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">人口</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">面積</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">資金</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">食料</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">農業規模</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">工業規模</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">商業規模</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">礦業規模</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">發電量</span>
             </th>
-            <th class="titleCell" align="center">
+            <th class="TitleCell" align="center">
                 <span class="head">技術</span>
             </th>
         </tr>
-        <tr>
-            @* @for (int i = 0; i < (int)ViewData["NumTimes"]; i++)
-            {
-                <li>@ViewData["Message"]</li>
-            } *@
 
+        @for (int i = 0; i < listItems.Count; i++)
+        {
+            <tr>
+                <th class="NumberCell" rowspan="4" align="center">
+                    <font size="5">
+                        <span class="number">@i.ToString()</span>
+                    </font>
+                </th>
 
+                @* 島嶼資料 *@
+                <th class="NameCell" rowspan="4" align="left">
+                    <center>
+                        <a style="text-decoration:none" href="https://hako.oldtu.com/hako-main.cgi?Sight=627" title="ID:627">
+                            <span class="islName">@listItems[i].Name</span>
+                        </a><br>
+                        <font size="-1"><span class="shuto">首都：xxx</span><br></font>
+                        ID:(<span class="house"><b>@listItems[i].IslandId.ToString()</b></span>) <span class="point">@listItems[i].Rank.ToString()</span>pts.<br>
+                        <font size="-1">失業率</font>:(<span class="unemploy1">-10960.32%</span>)<br>
+                        <span class="eisei"><font size="-1">總計觀光者數32萬人<br></font></span>
+                        <span class="monsm"><font size="-2">(前回合＋363pts.＋33300人＋23635億圓)</font></span>
+                    </center>
+                </th>
 
+                @* 島嶼數據 *@
+                <td class="InfoCell"> @listItems[i].People.ToString() 人</td>
+                <td class="InfoCell"> @listItems[i].TotalArea.ToString() 萬坪</td>
+                <td class="InfoCell"> 推估 @listItems[i].Funds.ToString() 億元</td>
+                <td class="InfoCell"> 推估 @listItems[i].Foods.ToString() 噸</td>
+                <td class="InfoCell"> @listItems[i].IndustryEmployee.ToString() 人</td>
+                <td class="InfoCell"> @listItems[i].FrameEmployee.ToString() 人</td>
+                <td class="InfoCell"> @listItems[i].BusinessEmployee.ToString() 人</td>
+                <td class="InfoCell"> @listItems[i].MiningEmployee.ToString() 人</td>
+                <td class="InfoCell"> @listItems[i].TotalPower.ToString() 萬瓦</td>
+                <td class="InfoCell"> Lv.0</td>
+            </tr>
+
+            @* Toto *@
+            <tr>
+                <td class="TotoCell" colspan="5" align="left"><span class="headToTo">予想1：</span>test toto 1</td>
+                <td class="TotoCell" colspan="5" align="left"><span class="headToTo">予想2：</span>test toto 2</td>
+            </tr>
+            @* message *@
+            <tr>
+                <td class="TotoCell" colspan="10" align="left"><span class="lbbsSS">@listItems[i].UserName : </span>@listItems[i].UserInfomation</td>
+            </tr>
+
+            <tr>
+                <td class="CommentCell" colspan="10" align="left"></td>
+            </tr>
             
-            <th class="NumberCell" rowspan="4" align="center">
-                <font size="5">
-                    <span class="number">1</span>
-                </font>
-            </th>
-            <th class="NameCell" rowspan="4" align="left">
-                <center>
-                    <a href="" title="ID:0"></a>
-                </center>
-            </th>
-        </tr>
+        }
     </tbody>
 </table>
 

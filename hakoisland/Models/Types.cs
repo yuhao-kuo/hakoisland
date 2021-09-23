@@ -57,11 +57,15 @@ namespace hakoisland
         Pasture = 74,                   // 牧場
         #endregion
 
-        #region 工業 91 ~ 110
+        #region 工業 91 ~ 105
         CityFactory = 91,               // 都市型工廠
         Factory = 92,                   // 工廠
         HighTechFactory = 93,           // 高科技工廠
         HighTechCompany = 94,           // 高科技公司
+        #endregion
+
+        #region 礦業 105 ~ 110
+        MiningPlant = 105,              // 採礦廠
         #endregion
 
         #region 一般建築物 111 ~ 150

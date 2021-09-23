@@ -1,4 +1,5 @@
 using System;
+using hakoisland.Data;
 
 namespace hakoisland.Models
 {

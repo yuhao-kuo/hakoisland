@@ -62,7 +62,7 @@ h1 {
 }
 .title:first-letter {
     color: #4169E1;
-    font-size: 48px;
+    font-size: 32px;
 }
 .Turn {
     display: block;
@@ -276,6 +276,7 @@ h2 {
 
 .TitleCell {
     background-color: #97D3E3;
+    text-align: center;
 }
 
 /* 順位表見出し */
